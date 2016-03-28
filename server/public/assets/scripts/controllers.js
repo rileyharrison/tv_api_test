@@ -9,7 +9,7 @@ myApp.controller("AddController", ["$scope", "$http", "MovieService", function($
       //http://thetvdb.com/api/GetSeries.php?seriesname=rescue+me&language=en
 
       //-----
-      $http.get("      http://thetvdb.com/api/GetSeries.php?seriesname=" + data.name + "rescue+me&language=en").then(function(response){
+      $http.get("http://thetvdb.com/api/GetSeries.php?seriesname=" + data.name + "rescue+me&language=en").then(function(response){
           console.log(response.data);
           $scope.data = [];
           $scope.data.push(response.data);
