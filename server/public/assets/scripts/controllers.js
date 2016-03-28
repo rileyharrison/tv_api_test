@@ -2,29 +2,30 @@ myApp.controller("AddController", ["$scope", "$http", "MovieService", function($
     $scope.movies = {};
     $scope.data = [];
 
+
     $scope.search = function(data){
       console.log("We are going to go look for ", data);
 
       //------
-      //http://thetvdb.com/api/GetSeries.php?seriesname=rescue+me&language=en
+      http://api.tvmaze.com/search/shows?q=girls
 
       //-----
-      $http.get("http://thetvdb.com/api/GetSeries.php?seriesname=" + data.name + "rescue+me&language=en").then(function(response){
+      $http.get("http://api.tvmaze.com/search/shows?q="+ data.name ).then(function(response){
           console.log(response.data);
-          $scope.data = [];
-          $scope.data.push(response.data);
+          $scope.data = response.data;
       });
     };
 
     $scope.addMovie = function(data){
-        console.log(data);
+        console.log("looking at some Data",data);
 
         var postObject = {};
-        postObject.Title = data.Title;
-        postObject.Runtime = data.Runtime;
-        postObject.Rated = data.Rated;
-        postObject.Actors = data.Actors;
-        postObject.Plot = data.Plot;
+        postObject.Name = data.name;
+        postObject.Premiered = data.premiered;
+        postObject.Summary = stripTags(data.summary);
+        console.log("summary =",postObject.Summary);
+        postObject.Image = data.image.medium;
+
 
         MovieService.postMovie(postObject);
     };
@@ -35,3 +36,11 @@ myApp.controller("ShowController", ["$scope", "MovieService", function($scope, M
 
     $scope.data = MovieService.data;
 }]);
+function stripTags(myText){
+
+    var newText = myText.replace("<p>","");
+    newText = newText.replace("</p>","");
+
+
+    return newText
+}

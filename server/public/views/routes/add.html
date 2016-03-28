@@ -4,12 +4,13 @@
     <input type="submit" value="Search" />
   </form>
 
-  <div ng-repeat="movie in data">
-    <h2> {{ movie.Title }} </h2>
-    <p> {{ movie.Runtime }} </p>
-    <p> {{ movie.Rated }} </p>
-    <h5> {{ movie.Actors }} </h5>
-    <h6> {{ movie.Plot }}</h6>
-    <button ng-click="addMovie(movie)">Add Movie</button>
+  <div ng-repeat="series in data">
+    <h2> {{ series.show.name }} </h2>
+    <p> {{ series.show.premiered }} </p>
+    <p> {{ series.show.summary }} </p>
+
+    <img ng-src="{{ series.show.image.medium }}" alt="Description" />
+
+    <button ng-click="addMovie(series.show)">Add Show</button>
   </div>
 </p>

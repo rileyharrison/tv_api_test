@@ -1,5 +1,14 @@
 <p>
-  <div ng-repeat="movie in data.response">
-    <h1> {{ movie.Title }}</h1>
+  <div class = "show-div" ng-repeat="series in data.response">
+    <h1> {{ series.Name }}</h1>
+
+    <img ng-src="{{ series.Image }}" alt="Description" />
+
+    <p>{{ series.Premiered }}</p>
+    <p>{{ series.Summary }}</p>
+
+
+
+
   </div>
 </p>

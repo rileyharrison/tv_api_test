@@ -10,7 +10,7 @@ myApp.factory("MovieService", ["$http", function($http){
 
     var getMovies = function(){
         $http.get("/movie").then(function(response){
-            console.log(response.data);
+            console.log("Hey I am getting in the Factory",response.data);
             data.response = response.data;
         });
     };
