@@ -10,21 +10,17 @@ app.set("port", (process.env.PORT || 5000));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// if (process.env.DATABASE_URL){
-//     connectionString = 'mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463'
-// } else {
-//     connectionString = 'mongodb://localhost/tv_shows_app';
-// }
-console.log("process.env.mongoloaburi", process.env.MONGOHQ_URL);
 
-// connectionString = 'mongodb://localhost/tv_shows_app';
-connectionString = 'mongodb://heroku_20jvr463:fs2nv7d4q15bm0kmb4v93bfhgh@ds025379.mlab.com:25379/heroku_20jvr463';
+var myPort = app.get("port");
+
+    if (myPort==5000){
+        connectionString = 'mongodb://localhost/tv_shows_app';
+    } else {
+        connectionString = 'mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463'
+
+    }
 
 mongoose.connect(connectionString);
-
-// mongoose.connect('mongodb://localhost/tv_shows_app');
-
-//mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463
 
 mongoose.model("Shows", new Schema({"Name" : String, "Premiered" : String, "Summary" : String, "Image" : String}));
 var Show = mongoose.model("Shows");
