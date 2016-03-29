@@ -19,6 +19,7 @@ var myPort = app.get("port");
         connectionString = 'mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463';
 
     }
+connectionString = 'mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463';
 
 mongoose.connect(connectionString);
 
