@@ -16,7 +16,7 @@ var myPort = app.get("port");
     if (myPort==5000){
         connectionString = 'mongodb://localhost/tv_shows_app';
     } else {
-        connectionString = 'mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463'
+        connectionString = 'mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463';
 
     }
 
