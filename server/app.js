@@ -22,6 +22,8 @@ if (myPort == 5000){
     connectionString='mongodb://localhost/tv_shows_app';
 }
 
+console.log("connection string = ", connectionString);
+
 mongoose.connect(connectionString);
 mongoose.model("Shows", new Schema({"Name" : String, "Premiered" : String, "Summary" : String, "Image" : String}));
 var Show = mongoose.model("Shows");
