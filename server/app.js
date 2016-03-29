@@ -11,15 +11,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-// var myPort = app.get("port");
-//var connectionString = '';
-//     if (myPort==5000){
-//         connectionString = 'mongodb://localhost/tv_shows_app';
-//     } else {
-//         connectionString = 'mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463';
-//
-//     }
-// connectionString = 'mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463';
+
+// mongoose.connect('mongodb://localhost/tv_shows_app');
+
 
 mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463');
 
