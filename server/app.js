@@ -10,12 +10,13 @@ app.set("port", (process.env.PORT || 5000));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// var myPort = app.get("port");
-// console.log("myport = ", myPort);
-// connectionString='mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463';
-// if (myPort == 5000){
-//     connectionString='mongodb://localhost/tv_shows_app';
-// }
+
+console.log("process env port = ", process.env.PORT);
+
+
+//TODO
+// uncomment this line and comment the one below to run local
+// mongoose.connect('mongodb://localhost/tv_shows_app');
 
 mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463');
 
