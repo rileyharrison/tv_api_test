@@ -24,7 +24,7 @@ if (myPort == 5000){
 
 console.log("connection string = ", connectionString);
 
-mongoose.connect(connectionString);
+mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463');
 mongoose.model("Shows", new Schema({"Name" : String, "Premiered" : String, "Summary" : String, "Image" : String}));
 var Show = mongoose.model("Shows");
 
