@@ -4,15 +4,27 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-
+var connectionString = '';
 app.set("port", (process.env.PORT || 5000));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+var myPort = app.get("port");
+
+console.log("myport = ", myPort);
+
+if (myPort == 5000){
+    connectionString='mongodb://localhost/tv_shows_app';
+} else {
+    connectionString='mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463';
 
 
-mongoose.connect('mongodb://localhost/tv_shows_app');
+}
+
+
+
+mongoose.connect(connectionString);
 
 
 // mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds025379.mlab.com:25379/heroku_20jvr463');
